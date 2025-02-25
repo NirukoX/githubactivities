@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Posts</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+
+    <h2>Manage Posts for {{ user.name }}</h2>
+
+    <form method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content:</label>
+            <textarea class="form-control" name="content" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Post</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back</a>
+    </form>
+
+    <h3 class="mt-4">Existing Posts</h3>
+    <ul class="list-group">
+        {% for post in posts %}
+            <li class="list-group-item">
+                <strong>{{ post.title }}</strong>
+                <p>{{ post.content }}</p>
+                <a href="{{ url_for('edit_post', post_id=post.id) }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{{ url_for('delete_post', post_id=post.id) }}" class="btn btn-danger btn-sm">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
