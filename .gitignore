@@ -6,3 +6,7 @@
 
 # Allow ci-cd.html
 !ci-cd.html
+
+appgit.py
+
+templates/
