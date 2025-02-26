@@ -1,13 +1,8 @@
 # Ignore everything
 *
 
-# Allow only specific files
-!appgit.py
-!templates/edit_post.html
-!templates/posts.html
-!templates/edit_user.html
-!templates/manage_users.html
-!templates/indexgit.html
-
-# Ensure .gitignore itself is tracked
+# Except .gitignore itself
 !.gitignore
+
+# Allow ci-cd.html
+!ci-cd.html
